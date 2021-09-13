@@ -113,6 +113,8 @@ export default function ReviewForm({ foodOptions, onSubmit }) {
               type="submit"
               colorScheme="blue"
               disabled={isSubmitting}
+              isLoading={isSubmitting}
+              loadingText="Submitting..."
               mb={5}
             >
               Submit

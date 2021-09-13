@@ -7,20 +7,23 @@ import { useRouter } from "next/router";
 
 export default function Review({ Food }) {
   const router = useRouter();
-  const onSubmit = async (event) => {
-    console.log(event);
+  const onSubmit = async (values, { setSubmitting }) => {
+    console.log(values);
 
-    const { data, error } = await supabase.from("Survey").insert([
+    const { error } = await supabase.from("Survey").insert([
       {
-        Rating_Taste: event.tasteRating,
-        Rating_Looks: event.looksRating,
-        Comment: event.comment,
-        FoodId: parseInt(event.foodOption),
-        DisplayName: event.displayName,
+        Rating_Taste: values.tasteRating,
+        Rating_Looks: values.looksRating,
+        Comment: values.comment,
+        FoodId: parseInt(values.foodOption),
+        DisplayName: values.displayName,
       },
     ]);
     if (!error) {
+      setSubmitting(false);
       router.push("/thanks");
+    } else if (error) {
+      setSubmitting(false);
     }
   };
 
