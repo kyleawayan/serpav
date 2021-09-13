@@ -17,24 +17,27 @@ import React, { useState } from "react";
 export default function AddFoodModal({ isOpen, onClose }) {
   const [foodName, setFoodName] = useState("");
   const [invalid, setInvalid] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const onSubmit = async() => {
+  const onSubmit = async () => {
     setInvalid(false);
+    setSubmitting(true);
+
     if (!foodName || /^\s*$/.test(foodName)) {
       setInvalid(true);
       return;
     }
-    // submit to db
-    const { data, error} = await supabase
-    .from('Food')
-    .insert([
-    { FoodTitle: foodName}
-  ])
-    console.log(foodName);
-    if(!error){
+
+    const { error } = await supabase
+      .from("Food")
+      .insert([{ FoodTitle: foodName }]);
+
+    if (!error) {
+      // once user submits to db, just refresh the page for now bc list of food was statically prerendered already
       window.location.reload(true);
+    } else {
+      setSubmitting(false);
     }
-    // once user submits to db, just refresh the page for now bc list of food was statically prerendered already
   };
 
   return (
@@ -62,7 +65,14 @@ export default function AddFoodModal({ isOpen, onClose }) {
             <Button variant="ghost" onClick={onClose}>
               Close
             </Button>
-            <Button colorScheme="blue" mr={3} onClick={onSubmit}>
+            <Button
+              colorScheme="blue"
+              mr={3}
+              onClick={onSubmit}
+              isLoading={submitting}
+              loadingText="Adding..."
+              disabled={submitting}
+            >
               Add
             </Button>
           </ModalFooter>
