@@ -98,7 +98,12 @@ export default function ReviewForm({ foodOptions, onSubmit }) {
               onChange={(event) => setFieldValue("comment", event.target.value)}
               mb={4}
             />
-            <Button type="submit" colorScheme="blue" disabled={isSubmitting}>
+            <Button
+              type="submit"
+              colorScheme="blue"
+              disabled={isSubmitting}
+              mb={5}
+            >
               Submit
             </Button>
           </form>
