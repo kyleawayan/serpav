@@ -50,7 +50,9 @@ export default function ReviewForm({ foodOptions, onSubmit }) {
                 value={values.foodOption}
               >
                 {foodOptions.map((item, i) => (
-                  <option key={i}>{item}</option>
+                  <option key={i} value={item.id}>
+                    {item.name}
+                  </option>
                 ))}
               </Select>
               <FormErrorMessage>{errors.foodOption}</FormErrorMessage>
