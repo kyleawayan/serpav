@@ -1,6 +1,7 @@
 import { Box, Container, Heading, Link as L } from "@chakra-ui/layout";
 import React from "react";
 import Link from "next/link";
+import { useColorMode } from "@chakra-ui/color-mode";
 
 const links = [
   {
@@ -14,14 +15,15 @@ const links = [
 ];
 
 export default function Menu({ transparent }) {
+  const { toggleColorMode } = useColorMode();
+
   return (
     <Box
       pos={transparent ? "absolute" : "relative"}
       zIndex={2}
-      color={transparent ? "white" : "black"}
+      color={transparent ? "whiteAlpha.900" : null}
       w="100%"
       bg={transparent ? "blackAlpha.800" : "transparent"}
-      borderBottom={transparent ? null : "solid 1px black"}
     >
       <Container w="100%" maxW="container.xl" padding={2}>
         <Link href="/" passHref>
@@ -34,6 +36,9 @@ export default function Menu({ transparent }) {
             <L mr={3}>{link.name}</L>
           </Link>
         ))}
+        <L mr={3} onClick={toggleColorMode}>
+          Theme
+        </L>
       </Container>
     </Box>
   );
