@@ -20,7 +20,7 @@ export default function Home() {
         </Text>
         <Text mb={3}>This is student ran.</Text>
         <Link href="/review" passHref>
-          <Button colorScheme="blue" as="a" mb={5}>
+          <Button colorScheme="blue" as="a" mb={10}>
             Submit a review!
           </Button>
         </Link>

@@ -115,7 +115,7 @@ export default function ReviewForm({ foodOptions, onSubmit }) {
               disabled={isSubmitting}
               isLoading={isSubmitting}
               loadingText="Submitting..."
-              mb={5}
+              mb={10}
             >
               Submit
             </Button>
