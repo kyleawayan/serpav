@@ -2,6 +2,7 @@ import { Button } from "@chakra-ui/button";
 import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import { Input } from "@chakra-ui/input";
 import { Text } from "@chakra-ui/layout";
+import { supabase } from "../lib/supabaseClient";
 import {
   Modal,
   ModalBody,
@@ -17,13 +18,22 @@ export default function AddFoodModal({ isOpen, onClose }) {
   const [foodName, setFoodName] = useState("");
   const [invalid, setInvalid] = useState(false);
 
-  const onSubmit = () => {
+  const onSubmit = async() => {
     setInvalid(false);
     if (!foodName || /^\s*$/.test(foodName)) {
       setInvalid(true);
+      return;
     }
     // submit to db
+    const { data, error} = await supabase
+    .from('Food')
+    .insert([
+    { FoodTitle: foodName}
+  ])
     console.log(foodName);
+    if(!error){
+      window.location.reload(true);
+    }
     // once user submits to db, just refresh the page for now bc list of food was statically prerendered already
   };
 
