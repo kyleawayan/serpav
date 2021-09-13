@@ -33,10 +33,12 @@ export default function Menu({ transparent }) {
         </Link>
         {links.map((link, i) => (
           <Link href={link.to} key={i} passHref>
-            <L mr={3}>{link.name}</L>
+            <L mr={3} fontSize={["sm", "md"]}>
+              {link.name}
+            </L>
           </Link>
         ))}
-        <L mr={3} onClick={toggleColorMode}>
+        <L mr={3} onClick={toggleColorMode} fontSize={["sm", "md"]}>
           Theme
         </L>
       </Container>
