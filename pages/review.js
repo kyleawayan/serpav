@@ -16,6 +16,7 @@ export default function Review({ Food }) {
         Rating_Looks: event.looksRating,
         Comment: event.comment,
         FoodId: parseInt(event.foodOption),
+        DisplayName: event.displayName,
       },
     ]);
     if (!error) {

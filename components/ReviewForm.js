@@ -9,12 +9,14 @@ import { Select } from "@chakra-ui/select";
 import ReactStars from "react-rating-stars-component";
 import { Divider, Textarea, Button, Link } from "@chakra-ui/react";
 import AddFoodModal from "./AddFoodModal";
+import { Input } from "@chakra-ui/input";
 
 const initialValues = {
   foodOption: "",
   tasteRating: 0,
   looksRating: 0,
   comment: "",
+  displayName: "",
 };
 
 const validations = (values) => {
@@ -96,6 +98,15 @@ export default function ReviewForm({ foodOptions, onSubmit }) {
               placeholder="Will be public"
               value={values.comment}
               onChange={(event) => setFieldValue("comment", event.target.value)}
+              mb={4}
+            />
+            <FormLabel>Optional display name</FormLabel>
+            <Input
+              placeholder="Anonymous"
+              value={values.displayName}
+              onChange={(event) =>
+                setFieldValue("displayName", event.target.value)
+              }
               mb={4}
             />
             <Button
