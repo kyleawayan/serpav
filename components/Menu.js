@@ -1,11 +1,39 @@
-import { Box, Container, Heading } from "@chakra-ui/layout";
+import { Box, Container, Heading, Link as L } from "@chakra-ui/layout";
 import React from "react";
+import Link from "next/link";
 
-export default function Menu() {
+const links = [
+  {
+    name: "Submit a Review",
+    to: "/review",
+  },
+  {
+    name: "Food Reviews",
+    to: "/reviews",
+  },
+];
+
+export default function Menu({ transparent }) {
   return (
-    <Box pos="absolute" zIndex={2} color="white" w="100%" bg="blackAlpha.800">
+    <Box
+      pos={transparent ? "absolute" : "relative"}
+      zIndex={2}
+      color={transparent ? "white" : "black"}
+      w="100%"
+      bg={transparent ? "blackAlpha.800" : "transparent"}
+      borderBottom={transparent ? null : "solid 1px black"}
+    >
       <Container w="100%" maxW="container.xl" padding={2}>
-        <Heading size="lg">SURPAV</Heading>
+        <Link href="/" passHref>
+          <Heading size="lg" as="a" mr={4}>
+            SURPAV
+          </Heading>
+        </Link>
+        {links.map((link, i) => (
+          <Link href={link.to} key={i} passHref>
+            <L mr={3}>{link.name}</L>
+          </Link>
+        ))}
       </Container>
     </Box>
   );

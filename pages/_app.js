@@ -6,7 +6,6 @@ import Menu from "../components/Menu";
 function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider>
-      <Menu />
       <Component {...pageProps} />
     </ChakraProvider>
   );
