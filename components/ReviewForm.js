@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik } from "formik";
 import {
   FormControl,
@@ -7,7 +7,8 @@ import {
 } from "@chakra-ui/form-control";
 import { Select } from "@chakra-ui/select";
 import ReactStars from "react-rating-stars-component";
-import { Divider, Textarea, Button } from "@chakra-ui/react";
+import { Divider, Textarea, Button, Link } from "@chakra-ui/react";
+import AddFoodModal from "./AddFoodModal";
 
 const initialValues = {
   foodOption: "",
@@ -31,6 +32,8 @@ const validations = (values) => {
 };
 
 export default function ReviewForm({ foodOptions, onSubmit }) {
+  const [addFoodModalOpen, setAddFoodModalOpen] = useState(false);
+
   return (
     <div>
       <Formik
@@ -48,6 +51,7 @@ export default function ReviewForm({ foodOptions, onSubmit }) {
                   setFieldValue("foodOption", event.target.value)
                 }
                 value={values.foodOption}
+                mb={2}
               >
                 {foodOptions.map((item, i) => (
                   <option key={i} value={item.id}>
@@ -55,6 +59,13 @@ export default function ReviewForm({ foodOptions, onSubmit }) {
                   </option>
                 ))}
               </Select>
+              <Link fontSize="sm" onClick={() => setAddFoodModalOpen(true)}>
+                Food item not there?
+              </Link>
+              <AddFoodModal
+                isOpen={addFoodModalOpen}
+                onClose={() => setAddFoodModalOpen(false)}
+              />
               <FormErrorMessage>{errors.foodOption}</FormErrorMessage>
             </FormControl>
             <Divider mb={4} />
@@ -87,7 +98,7 @@ export default function ReviewForm({ foodOptions, onSubmit }) {
               onChange={(event) => setFieldValue("comment", event.target.value)}
               mb={4}
             />
-            <Button type="submit" disabled={isSubmitting}>
+            <Button type="submit" colorScheme="blue" disabled={isSubmitting}>
               Submit
             </Button>
           </form>
