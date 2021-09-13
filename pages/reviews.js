@@ -9,9 +9,7 @@ export default function reviews() {
   return (
     <div>
       <Menu />
-      <Container>
         <Card src={pavPic} alt="The Pavillion" foodName="Burgers"/>
-      </Container>
     </div>
   );
 }
