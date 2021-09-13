@@ -1,12 +1,17 @@
-import { Container } from "@chakra-ui/layout";
+import { Container, Box} from "@chakra-ui/layout";
 import React from "react";
 import Menu from "../components/Menu";
+import Image from "next/image";
+import pavPic from "../public/pav.jpg";
+import Card from "../components/Card";
 
 export default function reviews() {
   return (
     <div>
       <Menu />
-      <Container mt={8}>Coming soon!</Container>
+      <Container>
+        <Card src={pavPic} alt="The Pavillion" foodName="Burgers"/>
+      </Container>
     </div>
   );
 }

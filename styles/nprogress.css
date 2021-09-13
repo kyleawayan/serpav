@@ -1,3 +1,13 @@
+.imgCard {
+  border-radius: 10px;
+}
+.headingCard{
+  font-size: 15px !important;
+  font-weight: bold;
+}
+.column{
+  float: left;
+}
 /* Make clicks pass-through */
 #nprogress {
   pointer-events: none;
