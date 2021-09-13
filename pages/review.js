@@ -36,7 +36,8 @@ export default function Review({ Food }) {
   );
 }
 
-export async function getStaticProps() {
+// temp fix until i figure out revalidating
+export async function getServerSideProps() {
   let { data: Food, error } = await supabase
     .from("Food")
     .select("id, FoodTitle");
