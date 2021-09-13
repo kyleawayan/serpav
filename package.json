@@ -12,6 +12,7 @@
     "@chakra-ui/react": "^1.6.7",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
+    "@fontsource/inter": "^4.5.0",
     "@supabase/supabase-js": "^1.22.6",
     "formik": "^2.2.9",
     "framer-motion": "^4.1.17",
