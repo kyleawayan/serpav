@@ -39,7 +39,7 @@ export default function Menu({ transparent }) {
           </Link>
         ))}
         <L mr={3} onClick={toggleColorMode} fontSize={["sm", "md"]}>
-          {colorMode === "dark" ? "☀" : "☾"}
+          {colorMode === "dark" ? "☀️" : "🌙"}
         </L>
       </Container>
     </Box>
