@@ -1,7 +1,7 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../lib/theme";
 import NProgress from "nprogress";
-import "nprogress/nprogress.css";
+import "../styles/nprogress.css";
 import Router from "next/router";
 
 import "@fontsource/inter/400.css";
