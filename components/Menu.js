@@ -26,7 +26,7 @@ export default function Menu({ transparent }) {
       <Container w="100%" maxW="container.xl" padding={2}>
         <Link href="/" passHref>
           <Heading size="lg" as="a" mr={4}>
-            SURPAV
+            SERPAV
           </Heading>
         </Link>
         {links.map((link, i) => (
