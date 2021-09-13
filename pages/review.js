@@ -5,8 +5,17 @@ import Menu from "../components/Menu";
 import ReviewForm from "../components/ReviewForm";
 
 export default function review({ Food }) {
-  const onSubmit = (event) => {
+  const onSubmit = async(event) => {
     console.log(event);
+
+    const { data, error} = await supabase
+    .from('Survey')
+    .insert([
+    {Rating_Taste: event.tasteRating, Rating_Looks: event.looksRating, Comment: event.comment, FoodId: parseInt(event.foodOption)}
+  ])
+    if(!error){
+      window.location.reload(true);
+    }
     // make sure to convert event.foodOption to an int
   };
 
