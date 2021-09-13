@@ -33,7 +33,7 @@ export default function Card({ src, alt, foodName }) {
             <Box>
                 <Container mt={8}>
                     <Text className="headingCard">
-                        Food : "Love"
+                        Food : Love
                     </Text>
                     <Text>
                         Taste: 3/5
@@ -55,7 +55,7 @@ export default function Card({ src, alt, foodName }) {
             <Box>
                 <Container mt={8}>
                     <Text className="headingCard">
-                        Food : "Love"
+                        Food : Love
                     </Text>
                     <Text>
                         Taste: 3/5
