@@ -51,7 +51,7 @@ export default function ReviewForm({ foodOptions, onSubmit }) {
               >
                 {foodOptions.map((item, i) => (
                   <option key={i} value={item.id}>
-                    {item.name}
+                    {item.FoodTitle}
                   </option>
                 ))}
               </Select>
