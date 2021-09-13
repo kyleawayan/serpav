@@ -25,6 +25,7 @@ export default function AddFoodModal({ isOpen, onClose }) {
 
     if (!foodName || /^\s*$/.test(foodName)) {
       setInvalid(true);
+      setSubmitting(false);
       return;
     }
 
