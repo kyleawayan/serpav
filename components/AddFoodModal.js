@@ -23,6 +23,8 @@ export default function AddFoodModal({ isOpen, onClose }) {
       setInvalid(true);
     }
     // submit to db
+    console.log(foodName);
+    // once user submits to db, just refresh the page for now bc list of food was statically prerendered already
   };
 
   return (

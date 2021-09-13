@@ -7,6 +7,7 @@ import ReviewForm from "../components/ReviewForm";
 export default function review({ Food }) {
   const onSubmit = (event) => {
     console.log(event);
+    // make sure to convert event.foodOption to an int
   };
 
   return (
