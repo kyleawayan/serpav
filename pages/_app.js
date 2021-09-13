@@ -1,8 +1,15 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../lib/theme";
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
+import Router from "next/router";
 
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/700.css";
+
+Router.events.on("routeChangeStart", () => NProgress.start());
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
 
 function MyApp({ Component, pageProps }) {
   return (
