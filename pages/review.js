@@ -22,7 +22,7 @@ export default function Review({ Food }) {
     if (!error) {
       setSubmitting(false);
       router.push("/thanks");
-    } else if (error) {
+    } else {
       setSubmitting(false);
     }
   };
