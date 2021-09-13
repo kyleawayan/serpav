@@ -5,7 +5,7 @@ import Menu from "../components/Menu";
 import ReviewForm from "../components/ReviewForm";
 import { useRouter } from "next/router";
 
-export default function review({ Food }) {
+export default function Review({ Food }) {
   const router = useRouter();
   const onSubmit = async (event) => {
     console.log(event);
