@@ -1,4 +1,4 @@
-import { Grid } from "@chakra-ui/layout";
+import { Container, Grid } from "@chakra-ui/layout";
 import React from "react";
 import Menu from "../components/Menu";
 import pavPic from "../public/pav.jpg";
@@ -9,19 +9,25 @@ export default function reviews({ Food }) {
   return (
     <div>
       <Menu />
-      <Grid templateColumns="repeat(3, 1fr)" gap={6}>
-        {Food.map((foodItem) => (
-          <Card
-            src={pavPic}
-            alt="The Pavillion"
-            foodName={foodItem.FoodTitle}
-            tasteRating="1"
-            looksRating="2"
-            comment="Booty"
-            key={foodItem.id}
-          />
-        ))}
-      </Grid>
+      <Container mt={8} maxW="container.lg" mb={10}>
+        <Grid
+          templateColumns={{ lg: "repeat(3, 1fr)", md: "repeat(2, 1fr)" }}
+          gap={6}
+          m={2}
+        >
+          {Food.map((foodItem) => (
+            <Card
+              src={pavPic}
+              alt="The Pavillion"
+              foodName={foodItem.FoodTitle}
+              tasteRating="1"
+              looksRating="2"
+              comment="Booty"
+              key={foodItem.id}
+            />
+          ))}
+        </Grid>
+      </Container>
     </div>
   );
 }
