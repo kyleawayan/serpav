@@ -35,8 +35,8 @@ export async function getStaticProps() {
     .from("Food")
     .select("id, FoodTitle, AverageTaste");
 
-  console.log(Food);
   return {
     props: { Food },
+    revalidate: 10,
   };
 }
