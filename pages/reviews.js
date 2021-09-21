@@ -1,7 +1,6 @@
-import { Container, Box, Flex } from "@chakra-ui/layout";
+import { Grid } from "@chakra-ui/layout";
 import React from "react";
 import Menu from "../components/Menu";
-import Image from "next/image";
 import pavPic from "../public/pav.jpg";
 import Card from "../components/Card";
 import { supabase } from "../lib/supabaseClient";
@@ -10,7 +9,7 @@ export default function reviews({ Food }) {
   return (
     <div>
       <Menu />
-      <Box maxW="100%" className="row">
+      <Grid templateColumns="repeat(3, 1fr)" gap={6}>
         {Food.map((foodItem) => (
           <Card
             src={pavPic}
@@ -22,7 +21,7 @@ export default function reviews({ Food }) {
             key={foodItem.id}
           />
         ))}
-      </Box>
+      </Grid>
     </div>
   );
 }

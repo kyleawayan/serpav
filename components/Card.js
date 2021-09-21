@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { Container, Heading, Text } from "@chakra-ui/layout";
+import { Text } from "@chakra-ui/layout";
 import { Box } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/button";
 
@@ -13,15 +13,15 @@ export default function Card({
   comment,
 }) {
   return (
-    <Box w="33%" p={4} className="column">
-      <Image src={src} alt={alt} className="imgCard" />
-      <Box>
-        <Container mt={8}>
-          <Text className="headingCard">Food : {foodName}</Text>
-          <Text>Taste: {tasteRating}/5</Text>
-          <Text>Look: {looksRating}/5</Text>
-          <Text>Comments: {comment}</Text>
-        </Container>
+    <Box>
+      <Box pos="relative" h={300}>
+        <Image src={src} alt={alt} layout="fill" objectFit="cover" />
+      </Box>
+      <Box p={4}>
+        <Text className="headingCard">Food : {foodName}</Text>
+        <Text>Taste: {tasteRating}/5</Text>
+        <Text>Look: {looksRating}/5</Text>
+        <Text>Comments: {comment}</Text>
         <Button colorScheme="blue" as="a" mb={10}>
           Click Me
         </Button>

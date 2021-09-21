@@ -1,27 +1,3 @@
-/*Card.js css start*/
-.imgCard {
-  border-radius: 10px;
-}
-.headingCard{
-  font-size: 15px !important;
-  font-weight: bold;
-}
-.column{
-  float: left;
-  flex: auto;
-}
-/*Lower column to 2 a row if on mobile*/
-@media only screen and (max-width: 600px ){
-  .column{
-    width:50% !important;
-  }
-}
-/*Card.js css end*/
-/* Make clicks pass-through */
-#nprogress {
-  pointer-events: none;
-}
-
 #nprogress .bar {
   background: #29d;
 
