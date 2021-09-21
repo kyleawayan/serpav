@@ -15,7 +15,7 @@ export default function Card({ src, alt, foodName, averageRating }) {
         <Heading size="md" mb={1}>
           {foodName}
         </Heading>
-        <ReactStars />
+        <ReactStars value={averageRating} edit={false} />
       </Box>
     </Box>
   );
