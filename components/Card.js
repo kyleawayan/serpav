@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import { Heading, Text } from "@chakra-ui/layout";
 import { Box } from "@chakra-ui/react";
-import { Button } from "@chakra-ui/button";
 import ReactStars from "react-rating-stars-component";
 
 export default function Card({ src, alt, foodName, averageRating }) {
@@ -15,7 +14,7 @@ export default function Card({ src, alt, foodName, averageRating }) {
         <Heading size="md" mb={1}>
           {foodName}
         </Heading>
-        <ReactStars value={averageRating} edit={false} />
+        <ReactStars isHalf={true} value={averageRating} edit={false} />
       </Box>
     </Box>
   );

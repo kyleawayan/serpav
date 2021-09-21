@@ -20,9 +20,7 @@ export default function reviews({ Food }) {
               src={pavPic}
               alt="The Pavillion"
               foodName={foodItem.FoodTitle}
-              tasteRating="1"
-              looksRating="2"
-              comment="Booty"
+              averageRating={foodItem.AverageTaste}
               key={foodItem.id}
             />
           ))}
@@ -35,8 +33,9 @@ export default function reviews({ Food }) {
 export async function getStaticProps() {
   let { data: Food, error } = await supabase
     .from("Food")
-    .select("id, FoodTitle");
+    .select("id, FoodTitle, AverageTaste");
 
+  console.log(Food);
   return {
     props: { Food },
   };
