@@ -5,6 +5,10 @@ import pavPic from "../public/pav.jpg";
 import Card from "../components/Card";
 import { supabase } from "../lib/supabaseClient";
 
+function average(a, b) {
+  return (a + b) / 2;
+}
+
 export default function reviews({ Food }) {
   return (
     <div>
@@ -21,6 +25,9 @@ export default function reviews({ Food }) {
               alt="The Pavillion"
               foodName={foodItem.FoodTitle}
               foodId={foodItem.id}
+              stars={average(foodItem.AverageTaste, foodItem.AverageLooks)}
+              reviewCount={foodItem.ReviewCount}
+              commentCount={foodItem.CommentCount}
               key={foodItem.id}
             />
           ))}
@@ -33,7 +40,9 @@ export default function reviews({ Food }) {
 export async function getStaticProps() {
   let { data: Food, error } = await supabase
     .from("Food")
-    .select("id, FoodTitle");
+    .select(
+      "id, FoodTitle, AverageTaste, AverageLooks, ReviewCount, CommentCount"
+    );
 
   return {
     props: { Food },
