@@ -21,12 +21,7 @@ export default function FoodReview({ Food, Comments }) {
           borderRadius="lg"
           mb={5}
         ></Box>
-        <Text mb={5}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          maximus orci quis eros malesuada viverra. Pellentesque ac enim quis
-          mauris lacinia dignissim in quis diam. Nullam aliquet ac tellus et
-          gravida.
-        </Text>
+        <Text mb={5}>{Food[0].FoodDescription}</Text>
         <Stats
           averageTaste={Food[0].AverageTaste}
           averageLooks={Food[0].AverageLooks}
