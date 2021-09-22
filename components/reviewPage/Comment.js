@@ -20,6 +20,7 @@ export default function Comment({
     <Box pt={5}>
       <Text mb={4}>{text}</Text>
       <Text>
+        -{" "}
         {!displayName || /^\s*$/.test(displayName) ? "Anonymous" : displayName}
       </Text>
       <ReactStars
