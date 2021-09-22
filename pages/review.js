@@ -4,21 +4,31 @@ import React from "react";
 import Menu from "../components/Menu";
 import ReviewForm from "../components/ReviewForm";
 import { useRouter } from "next/router";
+import axios from "axios";
 
 export default function Review({ Food }) {
   const router = useRouter();
   const onSubmit = async (values, { setSubmitting }) => {
-    console.log(values);
+    let error = false;
+    const reqFoodId = parseInt(values.foodOption);
 
-    const { error } = await supabase.from("Survey").insert([
-      {
-        Rating_Taste: values.tasteRating,
-        Rating_Looks: values.looksRating,
-        Comment: values.comment,
-        FoodId: parseInt(values.foodOption),
-        DisplayName: values.displayName,
-      },
-    ]);
+    try {
+      await supabase.from("Survey").insert([
+        {
+          Rating_Taste: values.tasteRating,
+          Rating_Looks: values.looksRating,
+          Comment: values.comment,
+          FoodId: reqFoodId,
+          DisplayName: values.displayName,
+        },
+      ]);
+
+      await axios.post("/api/calculateNumbers", { reqFoodId: reqFoodId });
+    } catch (e) {
+      error = True;
+      console.error(e);
+    }
+
     if (!error) {
       setSubmitting(false);
       router.push("/thanks");
