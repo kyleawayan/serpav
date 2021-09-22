@@ -5,8 +5,15 @@ import { supabase } from "../../lib/supabaseClient";
 import Image from "next/image";
 import Stats from "../../components/reviewPage/Stats";
 import Comment from "../../components/reviewPage/Comment";
+import { useRouter } from "next/router";
 
 export default function FoodReview({ Food, Comments }) {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
       <Menu />
@@ -83,6 +90,12 @@ export async function getStaticProps({ params }) {
     .select("id, Comment, DisplayName, Rating_Taste, Rating_Looks, Time")
     .eq("FoodId", params.id)
     .neq("Comment", "");
+
+  if (Food.length == 0) {
+    return {
+      notFound: true,
+    };
+  }
 
   // Pass post data to the page via props
   return { props: { Food, Comments } };

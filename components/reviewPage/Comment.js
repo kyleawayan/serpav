@@ -15,7 +15,6 @@ export default function Comment({
   looksRate,
   tasteRate,
 }) {
-  console.log(displayName);
   return (
     <Box pt={5}>
       <Text mb={4}>{text}</Text>
