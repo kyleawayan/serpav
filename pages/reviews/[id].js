@@ -1,16 +1,16 @@
-import { Box, Container, Flex, Heading, Text } from "@chakra-ui/layout";
+import { Box, Container, Divider, Heading, Text } from "@chakra-ui/layout";
 import React from "react";
 import Menu from "../../components/Menu";
 import { supabase } from "../../lib/supabaseClient";
 import Image from "next/image";
-import { Stat, StatHelpText, StatLabel, StatNumber } from "@chakra-ui/stat";
+import Stats from "../../components/reviewPage/Stats";
+import Comment from "../../components/reviewPage/Comment";
 
 export default function FoodReview({ Food, Comments }) {
-  console.log(Food);
   return (
     <div>
       <Menu />
-      <Container mt={8}>
+      <Container mt={8} mb={10}>
         <Heading as="h1" mb={5}>
           {Food[0].FoodTitle}
         </Heading>
@@ -27,24 +27,26 @@ export default function FoodReview({ Food, Comments }) {
           mauris lacinia dignissim in quis diam. Nullam aliquet ac tellus et
           gravida.
         </Text>
-        <Flex>
-          <Stat>
-            <StatLabel>Taste</StatLabel>
-            <StatNumber>{Food[0].AverageTaste.toFixed(2)}</StatNumber>
-          </Stat>
-          <Stat>
-            <StatLabel>Looks</StatLabel>
-            <StatNumber>{Food[0].AverageLooks.toFixed(2)}</StatNumber>
-          </Stat>
-          <Stat>
-            <StatLabel>Reviews</StatLabel>
-            <StatNumber>{Food[0].ReviewCount}</StatNumber>
-          </Stat>
-          <Stat>
-            <StatLabel>Comments</StatLabel>
-            <StatNumber>{Food[0].CommentCount}</StatNumber>
-          </Stat>
-        </Flex>
+        <Stats
+          averageTaste={Food[0].AverageTaste}
+          averageLooks={Food[0].AverageLooks}
+          reviewCount={Food[0].ReviewCount}
+          commentCount={Food[0].CommentCount}
+        />
+        <Divider mb={4} mt={4} />
+        <Heading as="h2" fontSize="xl">
+          Comments
+        </Heading>
+        {Comments.map((comment) => (
+          <Comment
+            displayName={comment.DisplayName}
+            date={comment.Time}
+            text={comment.Comment}
+            looksRate={comment.Rating_Looks}
+            tasteRate={comment.Rating_Taste}
+            key={comment.id}
+          />
+        ))}
       </Container>
     </div>
   );
@@ -72,7 +74,7 @@ export async function getStaticProps({ params }) {
 
   let { data: Comments, dataError } = await supabase
     .from("Survey")
-    .select("Comment, DisplayName")
+    .select("id, Comment, DisplayName, Rating_Taste, Rating_Looks, Time")
     .eq("FoodId", params.id)
     .neq("Comment", "");
 
