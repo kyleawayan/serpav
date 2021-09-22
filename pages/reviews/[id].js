@@ -98,5 +98,5 @@ export async function getStaticProps({ params }) {
   }
 
   // Pass post data to the page via props
-  return { props: { Food, Comments } };
+  return { props: { Food, Comments }, revalidate: 10 };
 }
