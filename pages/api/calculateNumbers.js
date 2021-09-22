@@ -42,6 +42,16 @@ export default async function handler(req, res) {
       [reqFoodId]
     );
 
+    await client.query(
+      `UPDATE "Food"
+      SET "CommentCount" = (
+        SELECT COUNT("FoodId") FROM "Survey"
+        WHERE "FoodId" = $1 AND "Comment" <> ''
+      )
+      WHERE id = $1`,
+      [reqFoodId]
+    );
+
     await client.end();
 
     res.status(200).json({ status: "Success" });
