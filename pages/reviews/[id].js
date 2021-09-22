@@ -30,7 +30,7 @@ export default function FoodReview({ Food, Comments }) {
         <Flex>
           <Stat>
             <StatLabel>Taste</StatLabel>
-            <StatNumber>{Food[0].AverageTaste}</StatNumber>
+            <StatNumber>{Food[0].AverageTaste.toFixed(2)}</StatNumber>
           </Stat>
           <Stat>
             <StatLabel>Looks</StatLabel>
