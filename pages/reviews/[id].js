@@ -14,13 +14,24 @@ export default function FoodReview({ Food, Comments }) {
         <Heading as="h1" mb={5}>
           {Food[0].FoodTitle}
         </Heading>
-        <Box
-          ht={100}
-          minH={300}
-          background="gray.500"
-          borderRadius="lg"
-          mb={5}
-        ></Box>
+        {Food[0].hasImage && (
+          <Box
+            ht={100}
+            minH={300}
+            background="gray.500"
+            borderRadius="lg"
+            mb={5}
+            pos="relative"
+            overflow="hidden"
+          >
+            <Image
+              src={`https://pjgjuryphyzcubkjowdl.supabase.in/storage/v1/object/public/food/${Food[0].id}.webp`}
+              alt={Food[0].FoodTitle}
+              layout="fill"
+              objectFit="cover"
+            />
+          </Box>
+        )}
         <Text mb={5}>{Food[0].FoodDescription}</Text>
         <Stats
           averageTaste={Food[0].AverageTaste}
@@ -63,7 +74,7 @@ export async function getStaticProps({ params }) {
   let { data: Food, foodError } = await supabase
     .from("Food")
     .select(
-      "FoodTitle, FoodDescription, FoodImage, TimeCreated, AverageTaste, AverageLooks, ReviewCount, CommentCount"
+      "id, FoodTitle, FoodDescription, FoodImage, TimeCreated, AverageTaste, AverageLooks, ReviewCount, CommentCount, hasImage"
     )
     .eq("id", params.id);
 

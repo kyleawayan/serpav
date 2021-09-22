@@ -1,7 +1,6 @@
 import { Container, Grid } from "@chakra-ui/layout";
 import React from "react";
 import Menu from "../components/Menu";
-import pavPic from "../public/pav.jpg";
 import Card from "../components/Card";
 import { supabase } from "../lib/supabaseClient";
 
@@ -21,13 +20,12 @@ export default function reviews({ Food }) {
         >
           {Food.map((foodItem) => (
             <Card
-              src={pavPic}
-              alt="The Pavillion"
               foodName={foodItem.FoodTitle}
               foodId={foodItem.id}
               stars={average(foodItem.AverageTaste, foodItem.AverageLooks)}
               reviewCount={foodItem.ReviewCount}
               commentCount={foodItem.CommentCount}
+              hasImage={foodItem.hasImage}
               key={foodItem.id}
             />
           ))}
@@ -41,7 +39,7 @@ export async function getStaticProps() {
   let { data: Food, error } = await supabase
     .from("Food")
     .select(
-      "id, FoodTitle, AverageTaste, AverageLooks, ReviewCount, CommentCount"
+      "id, FoodTitle, AverageTaste, AverageLooks, ReviewCount, CommentCount, hasImage"
     );
 
   return {
