@@ -58,7 +58,8 @@ export async function getStaticProps() {
     .select(
       "id, FoodTitle, AverageTaste, AverageLooks, ReviewCount, CommentCount, hasImage"
     )
-    .order("hasImage");
+    .order("hasImage")
+    .order("ReviewCount", { ascending: false });
 
   return {
     props: { Food },
