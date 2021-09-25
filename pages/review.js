@@ -53,7 +53,7 @@ export default function Review({ Food }) {
       <Menu />
       <Container mt={8}>
         <Heading as="h1" mb={4}>
-          Submit a review
+          Submit a Review
         </Heading>
         <ReviewForm foodOptions={Food} onSubmit={onSubmit} />
       </Container>
