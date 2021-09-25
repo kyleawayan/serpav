@@ -1,4 +1,11 @@
-import { Box, Container, Divider, Heading, Text } from "@chakra-ui/layout";
+import {
+  AspectRatio,
+  Box,
+  Container,
+  Divider,
+  Heading,
+  Text,
+} from "@chakra-ui/layout";
 import React from "react";
 import Menu from "../../components/Menu";
 import { supabase } from "../../lib/supabaseClient";
@@ -21,24 +28,27 @@ export default function FoodReview({ Food, Comments }) {
         <Heading as="h1" mb={5}>
           {Food[0].FoodTitle}
         </Heading>
-        {Food[0].hasImage && (
-          <Box
-            ht={100}
-            minH={300}
-            background="gray.500"
-            borderRadius="lg"
-            mb={5}
-            pos="relative"
-            overflow="hidden"
-          >
-            <Image
-              src={`https://pjgjuryphyzcubkjowdl.supabase.in/storage/v1/object/public/food/${Food[0].id}.webp`}
-              alt={Food[0].FoodTitle}
-              layout="fill"
-              objectFit="cover"
-            />
-          </Box>
-        )}
+        <AspectRatio ratio={1}>
+          {Food[0].hasImage && (
+            <Box
+              ht={100}
+              minH={300}
+              background="gray.500"
+              borderRadius="lg"
+              mb={5}
+              pos="relative"
+              overflow="hidden"
+            >
+              <Image
+                src={`https://pjgjuryphyzcubkjowdl.supabase.in/storage/v1/object/public/food/${Food[0].id}.webp`}
+                alt={Food[0].FoodTitle}
+                layout="fill"
+                objectFit="cover"
+              />
+            </Box>
+          )}
+        </AspectRatio>
+
         <Text mb={5}>{Food[0].FoodDescription}</Text>
         <Stats
           averageTaste={Food[0].AverageTaste}
