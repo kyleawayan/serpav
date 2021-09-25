@@ -24,14 +24,6 @@ function MyApp({ Component, pageProps }) {
         openGraph={{
           title: "Serpav",
           description: "A Yelp for UC Merced's Pavillion!",
-          images: [
-            {
-              url: "/pav.jpg",
-              alt: "The Pavillion",
-              width: 1170,
-              height: 450,
-            },
-          ],
           site_name: "Serpav",
         }}
         twitter={{
