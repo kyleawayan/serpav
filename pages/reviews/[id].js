@@ -67,10 +67,10 @@ export default function FoodReview({ Food, Comments }) {
         )}
         <Text mb={5}>{Food[0].FoodDescription}</Text>
         <Stats
-          averageTaste={Food[0].AverageTaste}
-          averageLooks={Food[0].AverageLooks}
-          reviewCount={Food[0].ReviewCount}
-          commentCount={Food[0].CommentCount}
+          averageTaste={Food[0].AverageTaste ?? 0}
+          averageLooks={Food[0].AverageLooks ?? 0}
+          reviewCount={Food[0].ReviewCount ?? 0}
+          commentCount={Food[0].CommentCount ?? 0}
         />
         <Divider mb={4} mt={4} />
         <Heading as="h2" fontSize="xl">
