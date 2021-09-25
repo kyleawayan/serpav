@@ -13,6 +13,7 @@ import Image from "next/image";
 import Stats from "../../components/reviewPage/Stats";
 import Comment from "../../components/reviewPage/Comment";
 import { useRouter } from "next/router";
+import { NextSeo } from "next-seo";
 
 export default function FoodReview({ Food, Comments }) {
   const router = useRouter();
@@ -23,6 +24,22 @@ export default function FoodReview({ Food, Comments }) {
 
   return (
     <div>
+      <NextSeo
+        title={Food[0].FoodTitle}
+        description={`${Food[0].FoodTitle} reviews on Serpav.`}
+        canonical={`https://serpav.vercel.app/reviews/${Food[0].id}`}
+        openGraph={{
+          title: "Food Reviews",
+          description: "A Yelp for UC Merced's Pavillion!",
+          images: [
+            {
+              url: `https://pjgjuryphyzcubkjowdl.supabase.in/storage/v1/object/public/food/${Food[0].id}.webp`,
+              alt: Food[0].FoodTitle,
+            },
+          ],
+          site_name: "Serpav",
+        }}
+      />
       <Menu />
       <Container mt={8} mb={10}>
         <Heading as="h1" mb={5}>
