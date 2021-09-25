@@ -4,7 +4,6 @@ import ImageBanner from "../components/ImageBanner";
 import Menu from "../components/Menu";
 import pavPic from "../public/pav.jpg";
 import Link from "next/link";
-import { NextSeo } from "next-seo";
 
 export default function Home() {
   return (
