@@ -54,7 +54,8 @@ export default function Review({ Food }) {
 export async function getServerSideProps() {
   let { data: Food, error } = await supabase
     .from("Food")
-    .select("id, FoodTitle");
+    .select("id, FoodTitle")
+    .order("FoodTitle");
 
   return {
     props: { Food },
