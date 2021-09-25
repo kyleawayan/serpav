@@ -29,8 +29,8 @@ export default function FoodReview({ Food, Comments }) {
         description={`${Food[0].FoodTitle} reviews on Serpav.`}
         canonical={`https://serpav.vercel.app/reviews/${Food[0].id}`}
         openGraph={{
-          title: "Food Reviews",
-          description: "A Yelp for UC Merced's Pavillion!",
+          title: Food[0].FoodTitle,
+          description: `${Food[0].FoodTitle} reviews on Serpav.`,
           images: [
             {
               url: `https://pjgjuryphyzcubkjowdl.supabase.in/storage/v1/object/public/food/${Food[0].id}.webp`,
