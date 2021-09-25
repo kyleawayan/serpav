@@ -40,7 +40,8 @@ export async function getStaticProps() {
     .from("Food")
     .select(
       "id, FoodTitle, AverageTaste, AverageLooks, ReviewCount, CommentCount, hasImage"
-    );
+    )
+    .order("hasImage");
 
   return {
     props: { Food },
