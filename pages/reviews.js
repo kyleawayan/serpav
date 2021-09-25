@@ -19,12 +19,6 @@ export default function reviews({ Food }) {
         openGraph={{
           title: "Food Reviews",
           description: "A Yelp for UC Merced's Pavillion!",
-          images: [
-            {
-              url: `https://pjgjuryphyzcubkjowdl.supabase.in/storage/v1/object/public/food/${Food[0].id}.webp`,
-              alt: Food[0].FoodTitle,
-            },
-          ],
           site_name: "Serpav",
         }}
       />
