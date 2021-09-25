@@ -15,7 +15,7 @@ export default function reviews({ Food }) {
       <NextSeo
         title="Food Reviews"
         description="A Yelp for UC Merced's Pavillion!"
-        canonical="https://serpav.vercel.app/review"
+        canonical="https://serpav.vercel.app/reviews"
         openGraph={{
           title: "Food Reviews",
           description: "A Yelp for UC Merced's Pavillion!",
