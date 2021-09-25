@@ -12,11 +12,11 @@ export default function Stats({
     <Flex>
       <Stat>
         <StatLabel>Taste</StatLabel>
-        <StatNumber>{averageTaste.toFixed(2)}</StatNumber>
+        <StatNumber>{averageTaste.toFixed(1)}</StatNumber>
       </Stat>
       <Stat>
         <StatLabel>Looks</StatLabel>
-        <StatNumber>{averageLooks.toFixed(2)}</StatNumber>
+        <StatNumber>{averageLooks.toFixed(1)}</StatNumber>
       </Stat>
       <Stat>
         <StatLabel>Reviews</StatLabel>
