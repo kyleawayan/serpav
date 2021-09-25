@@ -41,7 +41,7 @@ export default function Review({ Food }) {
   return (
     <div>
       <NextSeo
-        title="Submit a review"
+        title="Submit a Review"
         description="A Yelp for UC Merced's Pavillion!"
         canonical="https://serpav.vercel.app/review"
         openGraph={{
