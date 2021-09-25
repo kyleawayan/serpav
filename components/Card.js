@@ -40,7 +40,7 @@ export default function Card({
           {reviewCount ?? 0} reviews, {commentCount ?? 0} comments
         </Text>
         <Link href={`/reviews/${foodId}`} passHref>
-          <Button>View {"->"}</Button>
+          <Button as="a">View {"->"}</Button>
         </Link>
       </Box>
     </Box>
