@@ -82,7 +82,7 @@ export default function ReviewForm({ foodOptions, onSubmit }) {
               <FormErrorMessage>{errors.tasteRating}</FormErrorMessage>
               <Divider mb={4} mt={4} />
             </FormControl>
-            <FormControl isInvalid={errors.tasteRating}>
+            <FormControl isInvalid={errors.looksRating}>
               <FormLabel>Rate the looks</FormLabel>
               <ReactStars
                 half={false}
