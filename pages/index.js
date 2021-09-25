@@ -9,18 +9,6 @@ import { NextSeo } from "next-seo";
 export default function Home() {
   return (
     <div>
-      <NextSeo
-        openGraph={{
-          images: [
-            {
-              url: "/pav.jpg",
-              alt: "The Pavillion",
-              width: 1170,
-              height: 450,
-            },
-          ],
-        }}
-      />
       <Menu transparent />
       <ImageBanner src={pavPic} alt="The Pavillion" />
       <Container mt={8}>
