@@ -3,6 +3,7 @@ import React from "react";
 import Menu from "../components/Menu";
 import Card from "../components/Card";
 import { supabase } from "../lib/supabaseClient";
+import { NextSeo } from "next-seo";
 
 function average(a, b) {
   return (a + b) / 2;
@@ -11,6 +12,22 @@ function average(a, b) {
 export default function reviews({ Food }) {
   return (
     <div>
+      <NextSeo
+        title="Food Reviews"
+        description="A Yelp for UC Merced's Pavillion!"
+        canonical="https://serpav.vercel.app/reviews"
+        openGraph={{
+          title: "Food Reviews",
+          description: "A Yelp for UC Merced's Pavillion!",
+          images: [
+            {
+              url: `https://pjgjuryphyzcubkjowdl.supabase.in/storage/v1/object/public/food/${Food[0].id}.webp`,
+              alt: Food[0].FoodTitle,
+            },
+          ],
+          site_name: "Serpav",
+        }}
+      />
       <Menu />
       <Container mt={8} maxW="container.lg" mb={10}>
         <Grid

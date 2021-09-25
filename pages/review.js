@@ -5,6 +5,7 @@ import Menu from "../components/Menu";
 import ReviewForm from "../components/ReviewForm";
 import { useRouter } from "next/router";
 import axios from "axios";
+import { NextSeo } from "next-seo";
 
 export default function Review({ Food }) {
   const router = useRouter();
@@ -39,10 +40,20 @@ export default function Review({ Food }) {
 
   return (
     <div>
+      <NextSeo
+        title="Submit a Review"
+        description="A Yelp for UC Merced's Pavillion!"
+        canonical="https://serpav.vercel.app/review"
+        openGraph={{
+          title: "Submit a review",
+          description: "A Yelp for UC Merced's Pavillion!",
+          site_name: "Serpav",
+        }}
+      />
       <Menu />
       <Container mt={8}>
         <Heading as="h1" mb={4}>
-          Submit a review
+          Submit a Review
         </Heading>
         <ReviewForm foodOptions={Food} onSubmit={onSubmit} />
       </Container>
