@@ -18,6 +18,25 @@ function MyApp({ Component, pageProps }) {
       <DefaultSeo
         dangerouslySetAllPagesToNoIndex={true}
         dangerouslySetAllPagesToNoFollow={true}
+        title="Serpav"
+        description="A Yelp for UC Merced's Pavillion!"
+        canonical="https://serpav.vercel.app/"
+        openGraph={{
+          title: "Serpav",
+          description: "A Yelp for UC Merced's Pavillion!",
+          images: [
+            {
+              url: "/pav.jpg",
+              alt: "The Pavillion",
+              width: 1170,
+              height: 450,
+            },
+          ],
+          site_name: "Serpav",
+        }}
+        twitter={{
+          cardType: "summary_large_image",
+        }}
       />
       <Component {...pageProps} />
     </ChakraProvider>
