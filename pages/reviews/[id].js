@@ -28,8 +28,8 @@ export default function FoodReview({ Food, Comments }) {
         <Heading as="h1" mb={5}>
           {Food[0].FoodTitle}
         </Heading>
-        <AspectRatio ratio={1}>
-          {Food[0].hasImage && (
+        {Food[0].hasImage && (
+          <AspectRatio ratio={1}>
             <Box
               ht={100}
               minH={300}
@@ -46,9 +46,8 @@ export default function FoodReview({ Food, Comments }) {
                 objectFit="cover"
               />
             </Box>
-          )}
-        </AspectRatio>
-
+          </AspectRatio>
+        )}
         <Text mb={5}>{Food[0].FoodDescription}</Text>
         <Stats
           averageTaste={Food[0].AverageTaste}
@@ -99,7 +98,8 @@ export async function getStaticProps({ params }) {
     .from("Survey")
     .select("id, Comment, DisplayName, Rating_Taste, Rating_Looks, Time")
     .eq("FoodId", params.id)
-    .neq("Comment", "");
+    .neq("Comment", "")
+    .order("Time", { ascending: false });
 
   if (Food.length == 0) {
     return {
