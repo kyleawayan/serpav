@@ -15,13 +15,17 @@ export default function Home() {
           A Yelp for UC Merced&apos;s Pavillion!
         </Heading>
         <Text mb={3}>
-          A small guide for incoming and frequent Pavillion customers with
-          professional reviews.
+          Leave and read reviews on food items served at the Pavillion.
         </Text>
         <Text mb={3}>This is student ran.</Text>
         <Link href="/review" passHref>
-          <Button colorScheme="blue" as="a" mb={10}>
+          <Button colorScheme="blue" as="a" mb={10} mr={2}>
             Submit a review!
+          </Button>
+        </Link>
+        <Link href="/reviews" passHref>
+          <Button colorScheme="blue" as="a" mb={10}>
+            Read reviews!
           </Button>
         </Link>
       </Container>
