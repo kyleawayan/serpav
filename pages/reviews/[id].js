@@ -65,7 +65,9 @@ export default function FoodReview({ Food, Comments }) {
             </Box>
           </AspectRatio>
         )}
-        <Text mb={5}>{Food[0].FoodDescription}</Text>
+        <Text mt={4} mb={5}>
+          {Food[0].FoodDescription}
+        </Text>
         <Stats
           averageTaste={Food[0].AverageTaste ?? 0}
           averageLooks={Food[0].AverageLooks ?? 0}
