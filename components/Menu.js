@@ -23,9 +23,10 @@ export default function Menu({ transparent }) {
       zIndex={2}
       color={transparent ? "whiteAlpha.900" : null}
       w="100%"
+      h="55px"
       bg={transparent ? "blackAlpha.800" : "transparent"}
     >
-      <Container w="100%" maxW="container.xl" padding={2}>
+      <Container w="100%" maxW="container.xl" pt={3}>
         <Link href="/" passHref>
           <Heading size="lg" as="a" mr={4}>
             serpav

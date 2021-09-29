@@ -27,7 +27,6 @@ export default function reviews({ Food }) {
         <Grid
           templateColumns={{ lg: "repeat(3, 1fr)", md: "repeat(2, 1fr)" }}
           gap={6}
-          m={2}
         >
           {Food.map((foodItem) => (
             <Card
