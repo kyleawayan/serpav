@@ -49,10 +49,13 @@ export async function getStaticProps() {
   let { data: Food, error } = await supabase
     .from("Food")
     .select(
-      "id, FoodTitle, AverageTaste, AverageLooks, ReviewCount, CommentCount, hasImage"
+      "id, FoodTitle, AverageTaste, AverageLooks, ReviewCount, CommentCount, hasImage, joke"
     )
+    .order("joke", { nullsFirst: true })
     .order("hasImage")
     .order("ReviewCount", { ascending: false });
+
+  console.log(Food);
 
   return {
     props: { Food },
