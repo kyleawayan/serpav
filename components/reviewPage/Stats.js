@@ -19,11 +19,11 @@ export default function Stats({
         <StatNumber>{averageLooks.toFixed(1)}</StatNumber>
       </Stat>
       <Stat>
-        <StatLabel>Reviews</StatLabel>
+        <StatLabel>{reviewCount == 1 ? "Review" : "Reviews"}</StatLabel>
         <StatNumber>{reviewCount}</StatNumber>
       </Stat>
       <Stat>
-        <StatLabel>Comments</StatLabel>
+        <StatLabel>{commentCount == 1 ? "Comment" : "Comments"}</StatLabel>
         <StatNumber>{commentCount}</StatNumber>
       </Stat>
     </Flex>
