@@ -40,7 +40,8 @@ export default function Card({
           </Heading>
           <ReactStars isHalf={true} value={stars} edit={false} />
           <Text fontSize="sm" color="gray.500" mb={4}>
-            {reviewCount ?? 0} reviews, {commentCount ?? 0} comments
+            {reviewCount ?? 0} {reviewCount == 1 ? "review" : "reviews"},{" "}
+            {commentCount ?? 0} {commentCount == 1 ? "comment" : "comments"}
           </Text>
           <Button as="a">View {"->"}</Button>
         </Box>
