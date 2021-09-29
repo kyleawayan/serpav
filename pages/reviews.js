@@ -55,8 +55,6 @@ export async function getStaticProps() {
     .order("hasImage")
     .order("ReviewCount", { ascending: false });
 
-  console.log(Food);
-
   return {
     props: { Food },
     revalidate: 10,
